@@ -27,12 +27,15 @@ let todaysExercises = [];
 // Links to HTML
 let userNameText = document.getElementById("userNameText")
 
+// Button Listeners
+
 // Functions
 function startChecks () {
-    userName = localStorage.getItem("userName");
+    userName = localStorage.getItem("userNameStorage");
     if (!userName) {
         userName = prompt(`Welcome! Please enter your name here.`)
-        userNameText.innerHTML = `Welcome ${userName}!`;
+        localStorage.setItem("userNameStorage",userName)
+        userNameText.innerHTML = `Hello ${userName}!`;
     } else {
         userNameText.innerHTML = `Welcome back ${userName}!`;
     }
